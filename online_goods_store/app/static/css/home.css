@@ -1,0 +1,53 @@
+html
+{
+    background-color: #DFD6CD;
+}
+
+header
+{
+    background-color: #DFD6CD;
+}
+
+.img_logo
+{
+    width: 101px;
+    position: relative;
+    left: 41px;
+    top: 7px;  
+}
+
+nav ul {
+    display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        justify-content: flex-end;
+        position: relative;
+        top: -68px;
+  }
+  
+  nav li {
+    margin-right: 142px;
+    font-size: 28px;
+    font-family: Playfair Display;
+  }
+  
+  nav a {
+    color: #000;
+    text-decoration: none;
+  }
+
+
+.img_header_logo
+{
+    position: relative;
+    left: 516px;
+    bottom: 474px;
+    width: 534px;
+}
+
+.div_header
+{
+    position: RELATIVE;
+    top: -20px;
+}
