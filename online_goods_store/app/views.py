@@ -13,5 +13,17 @@ def product(request):
 def order_placing(request):
     return render(request, 'order_placing.html')
 
+def authorization(request):
+    return render(request, 'authorization.html')
+
+def registration(request):
+    return render(request, 'registration.html')
+
+def output_password(request):
+    return render(request, 'output_password.html')
+
+def reporting(request):
+    return render(request, 'reporting.html')
+
 
 # Create your views here.

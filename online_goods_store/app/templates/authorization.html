@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
-    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'css/authorization.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair Display">
+    <title>Authorization</title>
 </head>
 <body>
 <header>
@@ -16,16 +17,15 @@
     <ul>
       <li><a href="{% url 'home' %}">О сайте</a></li>
       <li><a href="{% url 'catalog' %}">Каталог</a></li>
-      <li><a href="#">Личный кабинет</a></li>
+      <li><a href="{% url 'authorization' %}">Личный кабинет</a></li>
     </ul>
   </nav>
   <div class="div_header">
+    <p class="p_title_header">Авторизация</p>
     <img style="width: 1504px;" src="{% static 'img/header.png' %}">
-    <img class="img_header_logo" src="{% static 'img/logo_header.png' %}">
   </div>
 </header>
 <main>
-
 </main>
 <footer>
 
