@@ -1,0 +1,57 @@
+html
+{
+    background-color: #DFD6CD;
+}
+
+header
+{
+    background-color: #DFD6CD;
+}
+body
+{
+    background-color: #DFD6CD;
+}
+.img_logo
+{
+    width: 101px;
+    position: relative;
+    left: 41px;
+    top: 7px;  
+}
+
+nav ul {
+    display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        justify-content: flex-end;
+        position: relative;
+        top: -68px;
+  }
+  
+  nav li {
+    margin-right: 142px;
+    font-size: 28px;
+    font-family: Playfair Display Regular;
+  }
+  
+  nav a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  .div_header
+  {
+      position: RELATIVE;
+      top: -20px;
+  }
+.p_title_header
+{
+    font-size: 111px;
+    font-family: Playfair Display;
+    position: absolute;
+    top: 85px;
+    left: 330px;
+    font-weight: 400;
+    color: white;
+}

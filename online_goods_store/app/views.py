@@ -25,5 +25,11 @@ def output_password(request):
 def reporting(request):
     return render(request, 'reporting.html')
 
+def personal_account(request):
+    return render(request, 'personal_account.html')
+
+def change_product(request):
+    return render(request, 'change_product.html')
+
 
 # Create your views here.
