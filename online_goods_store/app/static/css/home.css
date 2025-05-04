@@ -7,7 +7,31 @@ header
 {
     background-color: #DFD6CD;
 }
+body
+{
+    background: #DFD6CD;
+}
 
+main
+{
+    height: 360px;
+}
+
+footer
+{
+    background: #532B00;
+    height: 105px;
+    font-family: Playfair Display;
+}
+.p_footer
+{
+    position: relative;
+    top: 44px;
+    color: azure;
+    font-family: Playfair Display;
+    text-align: center;
+    font-size: 17px;
+}
 .img_logo
 {
     width: 101px;
@@ -50,4 +74,15 @@ nav ul {
 {
     position: RELATIVE;
     top: -20px;
+}
+
+.div_post
+{
+    background: white;
+    position: relative;
+    top: -475px;
+    border-radius: 34px;
+    height: 734px;
+    width: 1444px;
+    left: 30px;
 }

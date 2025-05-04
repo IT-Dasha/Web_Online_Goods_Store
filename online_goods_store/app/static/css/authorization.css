@@ -9,8 +9,30 @@ header
 }
 body
 {
-    background-color: #DFD6CD;
+    background: #DFD6CD;
 }
+
+main
+{
+    height: 360px;
+}
+
+footer
+{
+    background: #532B00;
+    height: 105px;
+    font-family: Playfair Display;
+}
+.p_footer
+{
+    position: relative;
+    top: 44px;
+    color: azure;
+    font-family: Playfair Display;
+    text-align: center;
+    font-size: 17px;
+}
+
 .img_logo
 {
     width: 101px;
