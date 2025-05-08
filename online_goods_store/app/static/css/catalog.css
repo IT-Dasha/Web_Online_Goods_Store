@@ -83,8 +83,19 @@ nav ul {
 
 .input_seach   
 {
+    width: 839px;
+    height: 54px;
     position: relative;
-    width: 1000px;
-    height: 100px;
-    border-radius: 20px;
+    left: 47px;
+    border-radius: 39px;
+    border: black;
+}
+.select_catalog
+{
+    position: relative;
+    left: 56px;
+    height: 54px;
+    border-radius: 39px;
+    border: black;
+    width: 391px;
 }

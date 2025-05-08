@@ -26,6 +26,17 @@
   </div>
 </header>
 <main>
+  <form method="POST">
+        {% csrf_token %}
+  <input type="search" class="input_seach">
+  <select class="select_catalog" name="select_catalog">
+    <option value="">-- Выберите город --</option>
+    <option value="petersburg">Санкт-Петербург</option>
+    <option value="samara">Самара</option>
+    <option value="perm">Пермь</option>
+    <option value="novosibirsk">Новосибирск</option>
+  </select>
+  </form>
 </main>
 <footer>
   <p class="p_footer">2025</p>
