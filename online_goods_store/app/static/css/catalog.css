@@ -91,6 +91,8 @@ nav ul {
     border: 5px solid #000000;
     top: -6px;
     font-size: 26px;
+    font-family: Playfair Display;
+    padding: 12px;
 }
 .select_catalog
 {
