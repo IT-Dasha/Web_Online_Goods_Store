@@ -26,9 +26,26 @@
   </div>
 </header>
 <main>
-</main>
+      <a class="a_password" href="{% url 'output_password' %}">Забыли пароль?</a>
+  <div class="post_auto">
+    <p class="text_p">Авторизация</p>  
+    <input class="input_login" placeholder="Введите логин" type="text">
+    <input class="input_password" type="password"  type="password" id="password-input" placeholder="Введите пароль" name="password">
+    <a class="a_text" href="{% url 'personal_account' %}">
+      <button class="input_button_login">
+        <P class="p_login">Войти</P>
+      </button>
+    </a>
+        <a class="a_text" href="{% url 'registration' %}">
+      <button class="input_button_registrator">
+        <P class="p_registrator">Регистрация</P>
+      </button>
+    </a>
+  </div>
+</main> 
 <footer>
   <p class="p_footer">2025</p>
   </footer>
+  <script src="{% static 'js/password.js' %}"></script>
 </body>
 </html>

@@ -26,6 +26,18 @@
   </div>
 </header>
 <main>
+   <div class="post_auto">
+    <p class="text_p">Регистрация</p>  
+    <input class="input_login" placeholder="Введите логин" type="text">
+    <input class="input_password" type="password"  type="password" id="password-input" placeholder="Введите пароль" name="password">
+    <input type="checkbox">
+    <p class="p_contact">Согласие на обработку персональных данных</p>
+    <a class="a_text" href="{% url 'personal_account' %}">
+      <button class="input_button_login">
+        <P class="p_login">Войти</P>
+      </button>
+    </a>
+  </div>
 </main>
 <footer>
   <p class="p_footer">2025</p>

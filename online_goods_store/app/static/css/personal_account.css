@@ -14,7 +14,7 @@ body
 
 main
 {
-    height: 360px;
+    height: 1074px;
 }
 
 footer
@@ -75,4 +75,34 @@ nav ul {
     left: 330px;
     font-weight: 400;
     color: white;
+}
+
+.div_post
+{
+background: white;
+    position: relative;
+    top: 18px;
+    border-radius: 34px;
+    height: 734px;
+    width: 1444px;
+    left: 30px;
+
+}
+table
+{
+    width: 1445px;
+    position: relative;
+}
+table, th, td {
+   border: 2px solid rgb(140 140 140);
+   border-radius: 24px;
+   
+}
+th
+{
+height: 99px;
+    font-size: 43px;
+    font-family: Playfair Display Regular;
+    font-weight: normal;
+        
 }

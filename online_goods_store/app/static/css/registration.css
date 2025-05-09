@@ -14,7 +14,7 @@ body
 
 main
 {
-    height: 360px;
+    height: 1074px;
 }
 
 footer
@@ -75,4 +75,124 @@ nav ul {
     left: 439px;
     font-weight: 400;
     color: white;
+}
+
+.post_auto
+{
+width: 45%;
+    margin: 0px auto;
+    position: relative;
+    left: 7px;
+    background: white;
+    height: 592px;
+    border-radius: 32px;
+}
+.text_p
+{
+font-size: 38px;
+    font-family: Playfair Display;
+    position: relative;
+    left: 220px;
+    top: 36px;
+}
+.input_login
+{
+width: 457px;
+    height: 10px;
+    position: relative;
+    left: 79px;
+    top: 30px;
+    border-radius: 44px;
+    border: 5px solid #000000;
+    padding: 30px;
+    font-size: 26px;
+    font-family: Playfair Display;
+}
+
+.input_password
+{
+width: 457px;
+    height: 10px;
+    position: relative;
+    left: 79px;
+    top: 61px;
+    border-radius: 44px;
+    border: 5px solid #000000;
+    padding: 30px;
+    font-size: 26px;
+    font-family: Playfair Display;
+    background: url(/view.svg) 0 0 no-repeat;
+}
+
+input[type="text"]::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  text-align: center; 
+  font-size: 40px;
+}
+
+input[type="password"]::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  text-align: center; 
+  font-size: 40px;
+}
+
+.a_password
+{
+    position: relative;
+    left: 826px;
+    font-size: 26px;
+    font-family: Playfair Display;
+    top: 378px;
+     z-index: 9999;
+     color:  #532B00;
+}
+.input_button_login
+{
+display: block;
+    margin-left: auto;
+    background-color: #532B00;
+    width: 518px;
+    height: 10px;
+    position: relative;
+    left: -75px;
+    top: 53px;
+    border-radius: 44px;
+    border: 5px solid #000000;
+    padding: 30px;
+    font-size: 26px;
+    font-family: Playfair Display;
+    
+}
+.p_login
+{
+    position: relative;
+    top: -43px;
+        color: #ffffff;
+}
+
+input[type="button"]::-webkit-input-value { /* Chrome/Opera/Safari */
+  text-align: center; 
+  font-size: 40px;
+
+}
+.a_text {
+  color: inherit; /* Цвет ссылок становится таким же, как цвет родительского элемента */
+  text-decoration: none; /* Убираем подчёркивание */
+  background-color: transparent; /* Фон прозрачный, чтобы не выделяться */
+  cursor: pointer; /* Оставляем указатель, чтобы было понятно, что ссылка кликабельна */
+}
+input[type="checkbox"] {
+    transform: scale(1.6);
+    accent-color: #603e00;
+    transform: scale(4);
+    position: relative;
+    top: 164px;
+    left: -2px;
+}
+.p_contact
+{
+    font-size: 36px;
+    font-family: Playfair Display;
+    width: 431px;
+    position: relative;
+    top: 49px;
+    left: 83px;
 }
