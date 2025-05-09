@@ -120,9 +120,13 @@ position: relative;
 }
 
 .container {
-  display: grid;
-  grid-template-columns: auto auto auto;
+display: grid
+;
+    grid-template-columns: auto auto auto;
     grid-template-rows: 283px auto;
+    position: relative;
+    top: 31px;
+    left: 45px;
 }
 .product
 {
@@ -131,14 +135,22 @@ position: relative;
     height: 218px;
     border-radius: 29px;
     border: 23px black;
+        border: 5px solid #000000;
 }
 
 .product_p
 {
-        font-family: Playfair Display;
+font-family: Playfair Display;
     font-size: 23px;
     position: relative;
-    top: -10px;
+    top: -21px;
     left: -20px;
     text-align: center;
+}
+.product_img
+{
+        position: relative;
+    border-radius: 23px;
+    width: 365px;
+    height: 165px;
 }
