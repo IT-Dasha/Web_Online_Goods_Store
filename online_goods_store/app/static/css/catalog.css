@@ -88,17 +88,23 @@ nav ul {
     position: relative;
     left: 47px;
     border-radius: 39px;
-    border: black;
+    border: 5px solid #000000;
 }
 .select_catalog
 {
-    position: relative;
+position: relative;
     left: 56px;
     height: 54px;
     border-radius: 39px;
     border: black;
     width: 391px;
     font-family: Playfair Display;
+    font-size: 35px;
+    padding: 0px 0px 0px 82px;
+    -moz-appearance: none;
+    appearance: none;
+    background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) #ffffff no-repeat 94% !important;
+    border: 5px solid #000000;
 }
 
 .select_option
