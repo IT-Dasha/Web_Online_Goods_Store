@@ -90,8 +90,9 @@ background: white;
 }
 table
 {
-    width: 1445px;
+width: 1445px;
     position: relative;
+    top: 10px;
 }
 table, th, td {
    border: 2px solid rgb(140 140 140);
@@ -104,5 +105,15 @@ height: 99px;
     font-size: 43px;
     font-family: Playfair Display Regular;
     font-weight: normal;
+    width: 367px;
         
+}
+.text_p
+{
+font-size: 38px;
+    font-family: Playfair Display;
+    position: relative;
+    left: 15px;
+    top: 32px;
+    text-align: center;
 }
