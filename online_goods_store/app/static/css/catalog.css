@@ -132,3 +132,13 @@ position: relative;
     border-radius: 29px;
     border: 23px black;
 }
+
+.product_p
+{
+        font-family: Playfair Display;
+    font-size: 23px;
+    position: relative;
+    top: -10px;
+    left: -20px;
+    text-align: center;
+}
