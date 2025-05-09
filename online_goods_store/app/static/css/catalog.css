@@ -89,6 +89,8 @@ nav ul {
     left: 47px;
     border-radius: 39px;
     border: 5px solid #000000;
+    top: -6px;
+    font-size: 26px;
 }
 .select_catalog
 {
