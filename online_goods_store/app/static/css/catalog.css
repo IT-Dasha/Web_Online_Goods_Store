@@ -154,3 +154,18 @@ font-family: Playfair Display;
     width: 365px;
     height: 165px;
 }
+
+a {
+  color: inherit; /* Цвет ссылок становится таким же, как цвет родительского элемента */
+  text-decoration: none; /* Убираем подчёркивание */
+  background-color: transparent; /* Фон прозрачный, чтобы не выделяться */
+  cursor: pointer; /* Оставляем указатель, чтобы было понятно, что ссылка кликабельна */
+}
+
+.plus_img
+{
+        position: relative;
+    width: 48px;
+    left: 71px;
+    height: 42px;
+}
