@@ -26,6 +26,27 @@
   </div>
 </header>
 <main>
+  <form method = "post" enctype="multipart/form-data">
+    {% csrf_token %}
+   <div class="div_post">
+    <img class="img_product" src="{% static 'img/logo.png' %}">
+    <p class="p_id">Индетификатор товара</p>
+    <input class="input_id" type="text">
+    <p class="p_price">Цена товара</p>
+    <input class="input_price" type="text">
+    <p class="p_col">Количество на складе</p>
+    <input class="input_col" type="text">
+    <p class="p_category">Категория</p>
+      <select class="select_catalog" name="select_catalog">
+  </select>
+  <button type="submit" class="button_add_photo">
+    <p class="p_add_photo">Добавить фото</p>
+  </button>
+    <button class="button_add_update_product">
+    <p class="p_add_update_product">Сохранить</p>
+  </button>
+  </div>
+  </form>
 </main>
 <footer>
   <p class="p_footer">2025</p>

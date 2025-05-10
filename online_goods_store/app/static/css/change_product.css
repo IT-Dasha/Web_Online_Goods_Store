@@ -14,7 +14,7 @@ body
 
 main
 {
-    height: 360px;
+    height: 1185px;
 }
 
 footer
@@ -77,4 +77,176 @@ nav ul {
     color: white;
     text-align: center;
     line-height: 144px;
+}
+
+.div_post
+{
+background: white;
+    position: relative;
+    top: 18px;
+    border-radius: 34px;
+    height: 734px;
+    width: 1444px;
+    left: 30px;
+}
+
+.img_product
+{
+ position: relative;
+    left: 56px;
+    top: 54px;
+    height: 424px;
+    width: 537px;
+    border-radius: 51px;
+    border: 5px solid #000000;
+}
+.p_id
+{
+font-family: Playfair Display;
+    font-size: 30px;
+    position: relative;
+    top: -411px;
+    left: 699px;
+    width: 343px;
+}
+
+.p_price
+{
+font-family: Playfair Display;
+    font-size: 30px;
+    position: relative;
+    top: -474px;
+    left: 699px;
+    width: 286px;
+}
+.p_col
+{
+font-family: Playfair Display;
+    font-size: 30px;
+    position: relative;
+    top: -536px;
+    left: 699px;
+    width: 332px;
+}
+.p_category
+{
+font-family: Playfair Display;
+    font-size: 30px;
+    position: relative;
+    top: -596px;
+    left: 699px;
+    width: 332px;
+}
+.input_id
+{
+width: 457px;
+    height: 10px;
+    position: relative;
+    left: 670px;
+    top: -441px;
+    border-radius: 44px;
+    border: 5px solid #000000;
+    padding: 30px;
+    font-size: 26px;
+    font-family: Playfair Display;
+}
+
+.input_price
+{
+width: 457px;
+    height: 10px;
+    position: relative;
+    left: 670px;
+    top: -500px;
+    border-radius: 44px;
+    border: 5px solid #000000;
+    padding: 30px;
+    font-size: 26px;
+    font-family: Playfair Display;
+}
+
+.input_col
+{
+width: 457px;
+    height: 10px;
+    position: relative;
+    left: 670px;
+    top: -561px;
+    border-radius: 44px;
+    border: 5px solid #000000;
+    padding: 30px;
+    font-size: 26px;
+    font-family: Playfair Display;
+}
+
+.select_catalog
+{
+position: relative;
+    left: 674px;
+    height: 75px;
+    border-radius: 39px;
+    border: black;
+    width: 524px;
+    font-family: Playfair Display;
+    font-size: 35px;
+    padding: 0px 0px 0px 82px;
+    -moz-appearance: none;
+    appearance: none;
+    background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) #ffffff no-repeat 94% !important;
+    border: 5px solid #000000;
+    top: -620px;
+}
+
+.select_option
+{
+        background: #532B00;
+    height: 105px;
+    font-family: Playfair Display;
+    font-size: 23px;
+}
+.button_add_photo
+{
+position: relative;
+    left: -470px;
+    top: -574px;
+    width: 545px;
+    height: 79px;
+    border-radius: 44px;
+    border: 5px solid #000000;
+    font-size: 26px;
+    font-family: Playfair Display;
+    background: #532B00;
+    color: white;
+}
+.p_add_photo
+{
+    font-family: Playfair Display;
+    font-size: 30px;
+    position: relative;
+     top: -19px;
+    color: #ecd9bb;
+}
+
+.button_add_update_product
+{
+position: relative;
+    left: 55px;
+    top: -574px;
+    width: 545px;
+    height: 85px;
+    border-radius: 44px;
+    border: 5px solid #000000;
+    font-size: 26px;
+    font-family: Playfair Display;
+    background: #532B00;
+    color: white;
+}
+
+.p_add_update_product
+{
+    font-family: Playfair Display;
+    font-size: 30px;
+    position: relative;
+        top: -19px;
+    color: #ecd9bb;
 }
