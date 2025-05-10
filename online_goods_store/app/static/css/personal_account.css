@@ -86,7 +86,6 @@ background: white;
     height: 734px;
     width: 1444px;
     left: 30px;
-
 }
 table
 {
@@ -106,8 +105,10 @@ height: 99px;
     font-family: Playfair Display Regular;
     font-weight: normal;
     width: 367px;
+    
         
 }
+
 .text_p
 {
 font-size: 38px;

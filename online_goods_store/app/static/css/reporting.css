@@ -14,7 +14,7 @@ body
 
 main
 {
-    height: 360px;
+    height: 1074px;
 }
 
 footer
@@ -75,4 +75,42 @@ nav ul {
     left: 469px;
     font-weight: 400;
     color: white;
+}
+.div_post
+{
+background: white;
+    position: relative;
+    top: 18px;
+    border-radius: 34px;
+    height: 734px;
+    width: 1444px;
+    left: 30px;
+}
+
+.text_p
+{
+font-size: 38px;
+    font-family: Playfair Display;
+    position: relative;
+    left: 15px;
+    top: 32px;
+    text-align: center;
+}
+
+.input_button_login
+{
+display: block;
+    margin-left: auto;
+    background-color: #532B00;
+    width: 518px;
+    height: 10px;
+    position: relative;
+    left: -75px;
+    top: 53px;
+    border-radius: 44px;
+    border: 5px solid #000000;
+    padding: 30px;
+    font-size: 26px;
+    font-family: Playfair Display;
+    
 }

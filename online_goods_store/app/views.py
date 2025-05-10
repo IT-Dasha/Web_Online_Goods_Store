@@ -23,7 +23,11 @@ def output_password(request):
     return render(request, 'output_password.html')
 
 def reporting(request):
-    return render(request, 'reporting.html')
+     data = {
+        'labels': ['Январь', 'Февраль', 'Март', 'Апрель', 'Май'],
+        'data': [12, 19, 3, 5, 2]
+    }
+     return render(request, 'reporting.html', {'data': data})
 
 def personal_account(request):
     return render(request, 'personal_account.html')
