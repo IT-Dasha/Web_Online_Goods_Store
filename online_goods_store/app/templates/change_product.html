@@ -26,18 +26,20 @@
   </div>
 </header>
 <main>
-  <form method = "post" enctype="multipart/form-data">
+  <form  method="post" enctype="multipart/form-data">
     {% csrf_token %}
    <div class="div_post">
     <img class="img_product" src="{% static 'img/logo.png' %}">
     <p class="p_id">Индетификатор товара</p>
-    <input class="input_id" type="text">
+    <input name="productid" class="input_id" type="text">
     <p class="p_price">Цена товара</p>
-    <input class="input_price" type="text">
+    <input name="price" class="input_price" type="text">
     <p class="p_col">Количество на складе</p>
-    <input class="input_col" type="text">
+    <input name="stockQuantity" class="input_col" type="text">
     <p class="p_category">Категория</p>
       <select class="select_catalog" name="select_catalog">
+        {% for categorya in Category %}
+           <option name="id_categorya_id" value="{{categorya.categoryid}}" >{{categorya.categoryName}}</option>
   </select>
   <button type="submit" class="button_add_photo">
     <p class="p_add_photo">Добавить фото</p>

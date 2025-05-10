@@ -1,6 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import render
+from .models import Product, Category, Customer, Order, Purchase, Report
+from django.urls import reverse
+from django.http import HttpResponseRedirect
+from django.conf import settings
+
 
 def home(request):
     return render(request, 'home.html')
@@ -32,8 +37,24 @@ def reporting(request):
 def personal_account(request):
     return render(request, 'personal_account.html')
 
-def change_product(request):
-    return render(request, 'change_product.html')
+def add_product(request):
+    if 'save' in request.POST:
+        productid = request.POST.get('productid')
+        price = request.POST.get('price')
+        stockQuantity = request.POST.get('stockQuantity')
+        image = request.FILES['image']
+        fk_categoryid = request.POST.get('fk_categoryid')
+        product=Product()
+        product.save(force_insert=True)
+        max_pk = productid
+        for image in request.FILES.getlist('image'):
+                    import requests
+                    directory =  max_pk
+                    parent_dir = f"{settings.MEDIA_ROOT}"
+                    path = os.path.join(parent_dir, directory) 
+        return HttpResponseRedirect (reverse('catalog'))
+    Category = Category.objects.all()
+    return render(request, 'change_product.html',{'Category': Category})
 
 
 # Create your views here.
