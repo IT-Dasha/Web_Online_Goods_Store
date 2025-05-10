@@ -14,7 +14,7 @@ body
 
 main
 {
-    height: 360px;
+    height: 1099px;
 }
 
 footer
@@ -101,18 +101,67 @@ background: white;
 
 .input_button_product
 {
-display: block;
+    display: block;
     margin-left: auto;
     background-color: #532B00;
     width: 518px;
     height: 10px;
     position: relative;
-    left: -75px;
-    top: 53px;
+    left: -57px;
+    top: -623px;
     border-radius: 44px;
     border: 5px solid #000000;
     padding: 30px;
     font-size: 26px;
     font-family: Playfair Display;
     
+}
+.p_button
+{
+position: relative;
+    top: -45px;
+    left: 10px;
+    font-size: 26px;
+    font-family: Playfair Display;
+    color: white;
+}
+.p_catalog
+{
+    position: relative;
+    left: 856px;
+    font-size: 72px;
+    font-family: Playfair Display;
+    top: -468px;
+    width: 509px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.p_price
+{
+    position: relative;
+    left: 856px;
+    font-size: 72px;
+    font-family: Playfair Display;
+    top: -550px;
+    width: 509px;
+    text-align: center;
+}
+
+.p_col
+{
+position: relative;
+    left: 856px;
+    font-size: 72px;
+    font-family: Playfair Display;
+    top: -634px;
+    width: 509px;
+    text-align: center;
+}
+
+a {
+  color: inherit; /* Цвет ссылок становится таким же, как цвет родительского элемента */
+  text-decoration: none; /* Убираем подчёркивание */
+  background-color: transparent; /* Фон прозрачный, чтобы не выделяться */
+  cursor: pointer; /* Оставляем указатель, чтобы было понятно, что ссылка кликабельна */
 }
