@@ -14,7 +14,7 @@ body
 
 main
 {
-    height: 360px;
+    height: 1060px;
 }
 
 footer
@@ -91,9 +91,9 @@ nav ul {
 {
 background: white;
     position: relative;
-    top: -717px;
+    top: -743px;
     border-radius: 34px;
-    height: 736px;
+    height: 708px;
     width: 582px;
     left: 873px;
 }
@@ -187,11 +187,11 @@ position: relative;
 }
 .input_button_bye
 {
-display: block;
+    display: block;
     margin-left: auto;
     background-color: #532B00;
     width: 518px;
-    height: 10px;
+    height: 87px;
     position: relative;
     border-radius: 44px;
     border: 5px solid #000000;
@@ -233,7 +233,7 @@ position: relative;
     font-family: Playfair Display;
     width: 295px;
     left: 65px;
-    top: -65px;
+    top: -56px;
     color: white;
 }
 input[type="checkbox"] {
@@ -241,6 +241,16 @@ input[type="checkbox"] {
     accent-color: #603e00;
     transform: scale(4);
     position: relative;
-    top: 164px;
-    left: -2px;
+    top: 48px;
+    left: 87px;
+}
+.a_contract
+{
+position: relative;
+    font-size: 36px;
+    font-family: Playfair Display;
+    width: 295px;
+    left: 54px;
+    top: 46px;
+    color: #251800;
 }
