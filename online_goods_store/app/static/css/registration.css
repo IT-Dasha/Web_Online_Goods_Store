@@ -84,7 +84,7 @@ width: 45%;
     position: relative;
     left: 7px;
     background: white;
-    height: 592px;
+    height: 834px;
     border-radius: 32px;
 }
 .text_p
@@ -107,6 +107,7 @@ width: 457px;
     padding: 30px;
     font-size: 26px;
     font-family: Playfair Display;
+    margin-bottom: 20px;
 }
 
 .input_password
@@ -126,12 +127,12 @@ width: 457px;
 
 input[type="text"]::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   text-align: center; 
-  font-size: 40px;
+  font-size: 30px;
 }
 
 input[type="password"]::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   text-align: center; 
-  font-size: 40px;
+  font-size: 30px;
 }
 
 .a_password
@@ -153,7 +154,7 @@ display: block;
     height: 10px;
     position: relative;
     left: -75px;
-    top: 53px;
+    top: -29px;
     border-radius: 44px;
     border: 5px solid #000000;
     padding: 30px;
@@ -182,17 +183,17 @@ input[type="button"]::-webkit-input-value { /* Chrome/Opera/Safari */
 input[type="checkbox"] {
     transform: scale(1.6);
     accent-color: #603e00;
-    transform: scale(4);
+    transform: scale(3);
     position: relative;
-    top: 164px;
-    left: -2px;
+    top: 121px;
+    left: -32px;
 }
 .p_contact
 {
-    font-size: 36px;
+font-size: 33px;
     font-family: Playfair Display;
-    width: 431px;
+  width: 391px;
     position: relative;
-    top: 49px;
-    left: 83px;
+    top: -19px;
+    left: 105px;
 }

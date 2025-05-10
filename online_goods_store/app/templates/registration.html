@@ -28,8 +28,11 @@
 <main>
    <div class="post_auto">
     <p class="text_p">Регистрация</p>  
-    <input class="input_login" placeholder="Введите логин" type="text">
-    <input class="input_password" type="password"  type="password" id="password-input" placeholder="Введите пароль" name="password">
+     <input class="input_login" placeholder="Введите вашу фамилию" type="text">
+      <input class="input_login" placeholder="Введите ваше имя" type="text">
+       <input class="input_login" placeholder="Введите ваше отчество" type="text">
+    <input class="input_login" placeholder="Введите ваш номер телефона" type="text">
+    <input class="input_login" type="password"  type="password" id="password-input" placeholder="Введите пароль" name="password">
     <input type="checkbox">
     <p class="p_contact">Согласие на обработку персональных данных</p>
     <a class="a_text" href="{% url 'personal_account' %}">
