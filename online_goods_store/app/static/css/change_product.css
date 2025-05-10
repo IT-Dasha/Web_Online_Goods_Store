@@ -176,3 +176,42 @@ width: 457px;
     top: -12px;
     color: #ecd9bb;
 }
+
+
+.input-file {
+	position: relative;
+	display: inline-block;
+}
+.input-file span {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    font-size: 27px;
+    vertical-align: middle;
+    color: #ecd9bb;
+    text-align: center;
+    border-radius: 39px;
+    background-color: #532B00;
+    line-height: 22px;
+    height: 77px;
+    padding: 20px 63px;
+    box-sizing: border-box;
+    border: none;
+    margin: 0;
+    transition: background-color 0.2s;
+    left: -475px;
+    top: -491px;
+    width: 552px;
+    border: 5px solid #000000;
+    font-family: Playfair Display;
+}
+.input-file input[type=file] {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+	display: block;
+	width: 0;
+	height: 0;
+}

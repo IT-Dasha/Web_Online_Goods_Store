@@ -43,23 +43,32 @@ def change_product(request):
 
 def add_product(request):
     if 'save' in request.POST:
-        # product=Product()
-        # product.productid = request.POST.get("productid")
-        # product.price = request.POST.get("price")
-        # product.stockquantity = request.POST.get("stockquantity")
-        # # image = request.FILES['image']
-        # product.fk_categoryid_id = request.POST.get('categoryid_id')
-        # product.save()
+        product=Product()
+        product.productid = request.POST.get("productid")
+        product.price = request.POST.get("price")
+        product.stockquantity = request.POST.get("stockquantity")
+        product.fk_categoryid_id = request.POST.get('categoryid_id')
+        product.save()
         id_product=request.POST.get("productid")
         image = request.FILES['image']
         fs = FileSystemStorage()
         # save the image on MEDIA_ROOT folder
-        file_name = fs.save(image.name, image)
+        file_name = fs.save(id_product, image)
         # get file url with respect to `MEDIA_URL`
         file_url = fs.url(file_name)
         return HttpResponse(file_url)
     categoryes = Category.objects.all()
     return render(request, 'change_product.html',{'categoryes': categoryes})
+from django.core.files.storage import FileSystemStorage
+def qwe(request):
+    if request.method == 'POST':
+        myfile = request.FILES['myfile']
+        fs = FileSystemStorage() #defaults to   MEDIA_ROOT  
+        filename = fs.save(myfile.name, myfile)
+        file_url = fs.url(filename)
+        
+        return HttpResponse(f"Image saved at: {file_url}")
 
+    return render(request, 'qwe.html')
 
 # Create your views here.
