@@ -26,29 +26,34 @@
   </div>
 </header>
 <main>
-  <form  method="post" enctype="multipart/form-data">
-    {% csrf_token %}
    <div class="div_post">
+      <form  method="post" enctype="multipart/form-data">
+    {% csrf_token %}
     <img class="img_product" src="{% static 'img/logo.png' %}">
     <p class="p_id">Индетификатор товара</p>
     <input name="productid" class="input_id" type="text">
     <p class="p_price">Цена товара</p>
     <input name="price" class="input_price" type="text">
     <p class="p_col">Количество на складе</p>
-    <input name="stockQuantity" class="input_col" type="text">
+    <input name="stockquantity" class="input_col" type="text">
     <p class="p_category">Категория</p>
-      <select class="select_catalog" name="select_catalog">
-        {% for categorya in Category %}
-           <option name="id_categorya_id" value="{{categorya.categoryid}}" >{{categorya.categoryName}}</option>
-  </select>
-  <button type="submit" class="button_add_photo">
+      <select class="select_catalog" name="categoryid_id">
+        {% for categorya in categoryes %}
+           <option name="categoryid_id" value="{{categorya.categoryid}}" >{{categorya.categoryname}}</option>
+          {% endfor %}
+        </select>
+  <!-- <button type="submit" class="button_add_photo">
     <p class="p_add_photo">Добавить фото</p>
+  </button> -->
+    <label class="input-file">
+        <input class="input-fil" type="file" name="image" multiple>
+       <span  class="input-file-btn">Добавить фото</span>
+    </label> 
+    <button name="save" class="button_add_update_product">
+    <p  class="p_add_update_product">Сохранить</p>
   </button>
-    <button class="button_add_update_product">
-    <p class="p_add_update_product">Сохранить</p>
-  </button>
+    </form>
   </div>
-  </form>
 </main>
 <footer>
   <p class="p_footer">2025</p>

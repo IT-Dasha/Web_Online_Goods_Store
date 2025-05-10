@@ -5,7 +5,8 @@ from .models import Product, Category, Customer, Order, Purchase, Report
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django.conf import settings
-
+import os
+from django.core.files.storage import FileSystemStorage
 
 def home(request):
     return render(request, 'home.html')
@@ -37,24 +38,28 @@ def reporting(request):
 def personal_account(request):
     return render(request, 'personal_account.html')
 
+def change_product(request):
+    return render(request, 'personal_account.html')
+
 def add_product(request):
     if 'save' in request.POST:
-        productid = request.POST.get('productid')
-        price = request.POST.get('price')
-        stockQuantity = request.POST.get('stockQuantity')
+        # product=Product()
+        # product.productid = request.POST.get("productid")
+        # product.price = request.POST.get("price")
+        # product.stockquantity = request.POST.get("stockquantity")
+        # # image = request.FILES['image']
+        # product.fk_categoryid_id = request.POST.get('categoryid_id')
+        # product.save()
+        id_product=request.POST.get("productid")
         image = request.FILES['image']
-        fk_categoryid = request.POST.get('fk_categoryid')
-        product=Product()
-        product.save(force_insert=True)
-        max_pk = productid
-        for image in request.FILES.getlist('image'):
-                    import requests
-                    directory =  max_pk
-                    parent_dir = f"{settings.MEDIA_ROOT}"
-                    path = os.path.join(parent_dir, directory) 
-        return HttpResponseRedirect (reverse('catalog'))
-    Category = Category.objects.all()
-    return render(request, 'change_product.html',{'Category': Category})
+        fs = FileSystemStorage()
+        # save the image on MEDIA_ROOT folder
+        file_name = fs.save(image.name, image)
+        # get file url with respect to `MEDIA_URL`
+        file_url = fs.url(file_name)
+        return HttpResponse(file_url)
+    categoryes = Category.objects.all()
+    return render(request, 'change_product.html',{'categoryes': categoryes})
 
 
 # Create your views here.
