@@ -27,11 +27,11 @@
 </header>
 <main>
   <div class="div_post">
-    {% for product_id in product %}
-    <img class="img_product" src="{% static 'img/logo.png' %}">
-   <p class="p_catalog">{{product_id.fk_categoryid.categoryName}}</p>
-   <p class="p_price">{{product_id.price}}</p>
-   <p class="p_col" >{{product_id.stockquantity}}</p>
+    {% for product in products %}
+    <img class="img_product" src="{% get_media_prefix %}{{product.productid}}.png">
+   <p class="p_catalog">{{product.fk_categoryid.categoryname}}</p>
+   <p class="p_price">Цена: {{product.price}}</p>
+   <p class="p_col" >Кол-во на складе: {{product.stockquantity}}</p>
    <a href="wqe">
      <button class="input_button_product"><p class="p_button">Добавить в корзину</p></button>
     </a>

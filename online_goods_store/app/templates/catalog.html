@@ -40,8 +40,8 @@
 <div class="container">
   {% for product in products %}
   <div class="product">
-    <a href="{% url 'add_product' %}">
-    <img class="product_img" src="{% static 'img/logo.png' %}">
+    <a href="{%url 'product' product.productid %}">
+    <img class="product_img" src="{% get_media_prefix %}{{product.productid}}.png">
     <p class="product_p">{{product.price}}</p>
     </a>
   </div>

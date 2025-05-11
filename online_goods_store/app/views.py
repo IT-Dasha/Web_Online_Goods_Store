@@ -29,8 +29,8 @@ def catalog(request):
         return render(request, 'catalog.html', {'products': products, 'categoryes': categoryes})
     return render(request, 'catalog.html', {'products': products, 'categoryes': categoryes})
 def product(request, product_id):
-    product = Product.objects.get(id=product_id).select_related('fk_categoryid')
-    return render(request, 'product.html',context={'product': product})
+    products = Product.objects.filter(productid=product_id).select_related('fk_categoryid')
+    return render(request, 'product.html',context={'products': products})
 
 def order_placing(request):
     return render(request, 'order_placing.html')
