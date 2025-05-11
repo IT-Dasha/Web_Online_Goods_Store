@@ -12,9 +12,25 @@ def home(request):
     return render(request, 'home.html')
 
 def catalog(request):
-    return render(request, 'catalog.html')
-def product(request):
-    return render(request, 'product.html')
+    products = Product.objects.all()
+    categoryes = Category.objects.all()
+    if request.POST:
+        category_id=request.POST.get('categoryid_id')
+        search=request.POST.get('search')
+        if category_id=='' and search=='':
+            products = Product.objects.all()
+        elif category_id !='' and search !='':
+             products = Product.objects.filter(fk_categoryid=category_id,  price=search)
+        elif category_id =='' and search !='':
+            products = Product.objects.filter(price=search)
+        else:
+            products = Product.objects.all()
+        products = products.filter(fk_categoryid=category_id) 
+        return render(request, 'catalog.html', {'products': products, 'categoryes': categoryes})
+    return render(request, 'catalog.html', {'products': products, 'categoryes': categoryes})
+def product(request, product_id):
+    product = Product.objects.get(id=product_id).select_related('fk_categoryid')
+    return render(request, 'product.html',context={'product': product})
 
 def order_placing(request):
     return render(request, 'order_placing.html')
@@ -53,10 +69,10 @@ def add_product(request):
         image = request.FILES['image']
         fs = FileSystemStorage()
         # save the image on MEDIA_ROOT folder
-        file_name = fs.save(id_product, image)
+        file_name = fs.save(id_product+".png", image)
         # get file url with respect to `MEDIA_URL`
         file_url = fs.url(file_name)
-        return HttpResponse(file_url)
+        return HttpResponseRedirect (reverse ('catalog'))
     categoryes = Category.objects.all()
     return render(request, 'change_product.html',{'categoryes': categoryes})
 from django.core.files.storage import FileSystemStorage

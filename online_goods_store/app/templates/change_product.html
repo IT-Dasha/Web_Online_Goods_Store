@@ -29,7 +29,9 @@
    <div class="div_post">
       <form  method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    <img class="img_product" src="{% static 'img/logo.png' %}">
+      <div class="input-file-list">
+            <img class="img_product" src="{% static 'img/logo.png' %}">
+      </div>
     <p class="p_id">Индетификатор товара</p>
     <input name="productid" class="input_id" type="text">
     <p class="p_price">Цена товара</p>
@@ -46,9 +48,10 @@
     <p class="p_add_photo">Добавить фото</p>
   </button> -->
  	<label class="input-file">
-	   	<input type="file" name="file">		
+	   	<input type="file" name="image">		
 	   	<span>Добавить фото</span>
  	</label>
+  
     <button name="save" class="button_add_update_product">
     <p  class="p_add_update_product">Сохранить</p>
   </button>
@@ -59,4 +62,5 @@
   <p class="p_footer">2025</p>
   </footer>
 </body>
+<script src="{% static 'js/photo.js' %}"></script>
 </html>

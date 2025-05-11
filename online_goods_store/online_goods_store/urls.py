@@ -24,7 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', app.views.home, name='home'),
     path('catalog/', app.views.catalog, name='catalog'),
-    path('product/', app.views.product, name='product'),
+    path('product/<product_id>', app.views.product, name='product'),
     path('order_placing/', app.views.order_placing, name='order_placing'),
     path('authorization/', app.views.authorization, name='authorization'),
     path('registration/', app.views.registration, name='registration'),

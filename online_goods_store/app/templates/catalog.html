@@ -26,43 +26,26 @@
   </div>
 </header>
 <main>
-  <form method="POST">
+  <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-  <input type="search" class="input_seach">
-  <select class="select_catalog" name="select_catalog">
-    <option class="select_option" value="">Категория</option>
+  <input type="search" name="search" class="input_seach">
+  <select class="select_catalog" name="categoryid_id">
+    {% for category in categoryes %}
+    <option class="select_option" name="categoryid_id" value="{{category.categoryid}}">{{category.categoryname}}</option>
+    {%endfor%}
   </select>
   <a href="{% url 'change_product' %}">
 <img class="plus_img" src="{% static 'img/Plus.png' %}">
   </a>
 <div class="container">
+  {% for product in products %}
   <div class="product">
-    <a href="wqe">
+    <a href="{% url 'add_product' %}">
     <img class="product_img" src="{% static 'img/logo.png' %}">
-    <p class="product_p">Товар</p>
+    <p class="product_p">{{product.price}}</p>
     </a>
   </div>
-  <div class="product">
-    <img class="product_img" src="{% static 'img/logo.png' %}">
-    <p class="product_p">Товар</p>
-  </div>
-    <div class="product">
-    <img class="product_img" src="{% static 'img/logo.png' %}">
-    <p class="product_p">Товар</p>
-  </div>
-    <div class="product">
-    <img class="product_img" src="{% static 'img/logo.png' %}">
-    <p class="product_p">Товар</p>
-  </div>
-  <div class="product">
-    <img class="product_img" src="{% static 'img/logo.png' %}">
-    <p class="product_p">Товар</p>
-  </div>
-    <div class="product">
-    <img class="product_img" src="{% static 'img/logo.png' %}">
-    <p class="product_p">Товар</p>
-  </div>
-  
+ {% endfor %}
 </div>
   </form>
 </main>

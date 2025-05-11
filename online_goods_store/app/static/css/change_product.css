@@ -145,7 +145,22 @@ width: 457px;
 {width: 457px;height: 0px;position: relative;left: 670px;top: -553px;border-radius: 44px;border: 5px solid #000000;padding: 30px;font-size: 26px;font-family: Playfair Display;}
 
 .select_catalog
-{position: relative;left: 674px;height: 68px;border-radius: 39px;border: black;width: 524px;font-family: Playfair Display;font-size: 26px;padding: 0px 0px 0px 25px;-moz-appearance: none;appearance: none;background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) #ffffff no-repeat 94% !important;border: 5px solid #000000;top: -625px;}
+{
+    position: absolute;
+    left: 674px;
+    height: 68px;
+    border-radius: 39px;
+    border: black;
+    width: 524px;
+    font-family: Playfair Display;
+    font-size: 26px;
+    padding: 0px 0px 0px 25px;
+    -moz-appearance: none;
+    appearance: none;
+    background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) #ffffff no-repeat 94% !important;
+    border: 5px solid #000000;
+    top: 405px;
+    }
 
 .select_option
 {
@@ -166,7 +181,7 @@ width: 457px;
 }
 
 .button_add_update_product
-{position: relative;left: 55px;top: -481px;width: 545px;height: 85px;border-radius: 44px;border: 5px solid #000000;font-size: 26px;font-family: Playfair Display;background: #532B00;color: white;}
+{position: absolute;left: 55px;top: 614px;width: 545px;height: 85px;border-radius: 44px;border: 5px solid #000000;font-size: 26px;font-family: Playfair Display;background: #532B00;color: white;}
 
 .p_add_update_product
 {
@@ -201,7 +216,7 @@ width: 457px;
     border: none;
     margin: 0;
     transition: background-color 0.2s;
-    left: -475px;
+    left: 53px;
     top: -491px;
     width: 552px;
     border: 5px solid #000000;
@@ -214,4 +229,31 @@ width: 457px;
 	display: block;
 	width: 0;
 	height: 0;
+}
+
+.input-file-list {
+	padding: 10px 0;
+}
+.input-file-list-item {
+	display: inline-block;
+	margin: 0 15px 15px;
+	width: 150px;
+	vertical-align: top;
+	position: relative;
+}
+.input-file-list-item img {
+	width: 541px;
+	position: relative;
+	top: -1020px;
+	left: 43px;
+	height: 425px;
+	border-radius: 48px;
+}
+
+
+
+.input-file-list-name
+{
+   position: relative;
+   top: -1021px;
 }
