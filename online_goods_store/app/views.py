@@ -8,9 +8,11 @@ from django.conf import settings
 import os
 from django.core.files.storage import FileSystemStorage
 
+#ГОТОВ
 def home(request):
     return render(request, 'home.html')
 
+#ГОТОВ
 def catalog(request):
     products = Product.objects.all()
     categoryes = Category.objects.all()
@@ -28,6 +30,8 @@ def catalog(request):
         products = products.filter(fk_categoryid=category_id) 
         return render(request, 'catalog.html', {'products': products, 'categoryes': categoryes})
     return render(request, 'catalog.html', {'products': products, 'categoryes': categoryes})
+
+#ГОТОВ
 def product(request, product_id):
     products = Product.objects.filter(productid=product_id).select_related('fk_categoryid')
     return render(request, 'product.html',context={'products': products})
@@ -57,6 +61,7 @@ def personal_account(request):
 def change_product(request):
     return render(request, 'personal_account.html')
 
+#ГОТОВ
 def add_product(request):
     if 'save' in request.POST:
         product=Product()
