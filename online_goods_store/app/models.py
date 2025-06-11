@@ -18,12 +18,13 @@ class Category(models.Model):
 
 
 class Customer(models.Model):
-    customerid = models.IntegerField(primary_key=True)
+    customerid = models.AutoField(primary_key=True)
     firstname = models.TextField()
     name = models.TextField()
     middlename = models.TextField()
     phone = models.TextField()
     address = models.TextField()
+    password = models.TextField()
 
     class Meta:
         managed = False
@@ -54,7 +55,8 @@ class Product(models.Model):
 
 
 class Purchase(models.Model):
-    fk_ordeid = models.OneToOneField(Order, models.DO_NOTHING, db_column='fk_ordeid', primary_key=True)
+    pk = models.CompositePrimaryKey('fk_ordeid', 'fk_productid')
+    fk_ordeid = models.ForeignKey(Order, models.DO_NOTHING, db_column='fk_ordeid')
     fk_productid = models.ForeignKey(Product, models.DO_NOTHING, db_column='fk_productid')
 
     class Meta:

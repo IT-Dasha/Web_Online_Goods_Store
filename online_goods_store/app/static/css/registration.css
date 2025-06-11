@@ -84,7 +84,7 @@ width: 45%;
     position: relative;
     left: 7px;
     background: white;
-    height: 834px;
+    height: 912px;
     border-radius: 32px;
 }
 .text_p
@@ -147,7 +147,7 @@ input[type="password"]::-webkit-input-placeholder { /* Chrome/Opera/Safari */
 }
 .input_button_login
 {
-display: block;
+    display: block;
     margin-left: auto;
     background-color: #532B00;
     width: 518px;
@@ -178,7 +178,8 @@ input[type="button"]::-webkit-input-value { /* Chrome/Opera/Safari */
   color: inherit; /* Цвет ссылок становится таким же, как цвет родительского элемента */
   text-decoration: none; /* Убираем подчёркивание */
   background-color: transparent; /* Фон прозрачный, чтобы не выделяться */
-  cursor: pointer; /* Оставляем указатель, чтобы было понятно, что ссылка кликабельна */
+  cursor: default;
+  pointer-events: none;
 }
 input[type="checkbox"] {
     transform: scale(1.6);

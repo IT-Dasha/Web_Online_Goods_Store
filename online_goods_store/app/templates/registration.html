@@ -27,23 +27,28 @@
 </header>
 <main>
    <div class="post_auto">
-    <p class="text_p">Регистрация</p>  
-     <input class="input_login" placeholder="Введите вашу фамилию" type="text">
-      <input class="input_login" placeholder="Введите ваше имя" type="text">
-       <input class="input_login" placeholder="Введите ваше отчество" type="text">
-    <input class="input_login" placeholder="Введите ваш номер телефона" type="text">
-    <input class="input_login" type="password"  type="password" id="password-input" placeholder="Введите пароль" name="password">
-    <input type="checkbox">
+    <p class="text_p">Регистрация</p> 
+      <form  method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+            <input class="input_login" id="surname" name="firstname" placeholder="Введите вашу фамилию" type="text">
+            <input class="input_login" id="name" name="name" placeholder="Введите ваше имя" type="text">
+            <input class="input_login" id="patronymic" name="middlename" placeholder="Введите ваше отчество" type="text">
+            <input class="input_login" id="phone" name="phone" placeholder="Введите ваш номер телефона" type="text">
+            <input class="input_login" id="password" name="password" type="password" placeholder="Введите пароль" name="password">
+            <input class="input_login" id="adress" name="address" placeholder="Введите ваш адрес" type="text">
+    <input type="checkbox" id="checkbox_contact">
     <p class="p_contact">Согласие на обработку персональных данных</p>
-    <a class="a_text" href="{% url 'personal_account' %}">
-      <button class="input_button_login">
+    <!-- <a class="a_text" id="button_contact" href="{% url 'personal_account' %}"> -->
+      <button name="save" class="input_button_login">
         <P class="p_login">Войти</P>
       </button>
     </a>
+      </form>
   </div>
 </main>
 <footer>
   <p class="p_footer">2025</p>
   </footer>
+  <script src="{% static 'js/check_contact.js' %}"></script>
 </body>
 </html>

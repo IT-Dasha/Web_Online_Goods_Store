@@ -40,9 +40,25 @@ def order_placing(request):
     return render(request, 'order_placing.html')
 
 def authorization(request):
+    
     return render(request, 'authorization.html')
 
 def registration(request):
+    user=Customer.objects.all()
+    if 'save' in request.POST:
+        firstname = request.POST.get('firstname')
+        name = request.POST.get('name')
+        middlename = request.POST.get('middlename')
+        phone = request.POST.get('phone')
+        address = request.POST.get('address')
+        password = request.POST.get('password')
+        if user.filter(firstname=firstname).exists() and user.filter(name=name).exists() and user.filter(middlename=middlename).exists() and user.filter(phone=phone).exists() and user.filter(password=password).exists() and user.filter(address=address).exists():
+            return HttpResponse ("Такой пользователь уже существует")
+        else:
+            new_user = Customer(firstname=firstname, name=name, middlename=middlename, phone=phone, address=address, password=password)
+            new_user.save()
+        return HttpResponseRedirect (reverse ('authorization'))
+
     return render(request, 'registration.html')
 
 def output_password(request):
