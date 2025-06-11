@@ -40,7 +40,14 @@ def order_placing(request):
     return render(request, 'order_placing.html')
 
 def authorization(request):
-    
+    user=Customer.objects.all()
+    if 'login' in request.POST:
+        phone = request.POST.get('phone')
+        password = request.POST.get('password')
+        if user.filter(phone=phone).exists() and user.filter(password=password).exists():
+            return HttpResponseRedirect (reverse ('personal_account'), {'customerid': user.get(phone=phone).customerid})
+        else:
+            return HttpResponseRedirect (reverse ('authorization'))
     return render(request, 'authorization.html')
 
 def registration(request):
