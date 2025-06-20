@@ -33,12 +33,12 @@
     {% csrf_token %} 
     <input class="input_login" name="phone" placeholder="Введите логин" type="text">
     <input class="input_password" name="password" type="password"  type="password" id="password-input" placeholder="Введите пароль" name="password">
-    <a class="a_text" href="{% url 'personal_account' 5  %}">
+    <a class="a_text" href="{% url 'personal_account' 1  %}">
       <button name="login" class="input_button_login">
         <P class="p_login">Войти</P>
       </button>
     </a>
-        <a class="a_text" href="{% url 'registration' %}">
+    <a   href="{% url 'registration' %}">
       <button class="input_button_registrator">
         <P class="p_registrator">Регистрация</P>
       </button>

@@ -103,16 +103,6 @@ def add_product(request):
         return HttpResponseRedirect (reverse ('catalog'))
     categoryes = Category.objects.all()
     return render(request, 'change_product.html',{'categoryes': categoryes})
-from django.core.files.storage import FileSystemStorage
-def qwe(request):
-    if request.method == 'POST':
-        myfile = request.FILES['myfile']
-        fs = FileSystemStorage() #defaults to   MEDIA_ROOT  
-        filename = fs.save(myfile.name, myfile)
-        file_url = fs.url(filename)
-        
-        return HttpResponse(f"Image saved at: {file_url}")
 
-    return render(request, 'qwe.html')
 
 # Create your views here.
