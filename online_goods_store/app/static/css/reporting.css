@@ -105,8 +105,8 @@ display: block;
     width: 518px;
     height: 10px;
     position: relative;
-    left: -75px;
-    top: 53px;
+    left: -479px;
+    top: 14px;
     border-radius: 44px;
     border: 5px solid #000000;
     padding: 30px;
@@ -114,3 +114,19 @@ display: block;
     font-family: Playfair Display;
     
 }
+.p_button
+{
+    position: relative;
+    top: -45px;
+    color: white;
+}
+.chart
+{
+display: block;
+    box-sizing: border-box;
+    height: 545px;
+    width: 627px;
+    position: relative;
+    left: 229px;
+}
+

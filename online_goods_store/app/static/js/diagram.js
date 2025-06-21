@@ -1,42 +1,4 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8" />
-    <title>Отчет и Контакт</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
-    <h1>Отчет по товарам и категориям</h1>
-
-    <!-- Контактная форма -->
-    <section>
-        <h2>Связаться с нами</h2>
-        <form method="post" action="">
-            {% csrf_token %}
-            <label for="name">Имя:</label><br>
-            <input type="text" id="name" name="name" required><br><br>
-
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email" required><br><br>
-
-            <label for="message">Сообщение:</label><br>
-            <textarea id="message" name="message" rows="4" cols="40" required></textarea><br><br>
-
-            <button type="submit">Отправить</button>
-        </form>
-    </section>
-
-    <hr>
-
-    <!-- Диаграмма -->
-    <section>
-        <h2>Количество характеристик товаров по категориям</h2>
-        <input type="hidden" id="categoryName" value="12">
-        <canvas id="categoryChart" width="50" height="50"></canvas>
-    </section>
-
-    <script>
-        let qwe = document.getElementById('categoryName').value; // "123"
+ let qwe = document.getElementById('categoryName').value; // "123"
         // Данные для диаграммы — подставьте реальные данные или используйте заглушки
         // Если хотите, чтобы данные передавались из Django, нужно изменить view и передать контекст
         const categories = [
@@ -72,6 +34,3 @@
                 }
             }
         });
-    </script>
-</body>
-</html>

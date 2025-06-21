@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/reporting.css' %}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair Display">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Reporting</title>
 </head>
 <body>
@@ -26,11 +27,71 @@
   </div>
 </header>
 <main>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %} 
   <div class="div_post">
-    <p class="text_p">Диаграмма</p>  
-    <button class="input_button_login"><p>Получить отчет</p></button>
+    <p class="text_p">Диаграмма</p> 
+    <!-- Диаграмма -->
+    <section class="chart">
+        <input type="hidden" id="categoryName" value="12">
+        <canvas class="chart" id="categoryChart" width="50" height="50"></canvas>
+    </section>
+<script>
+
+     let qwe = document.getElementById('categoryName').value; // "123"
+        // Данные для диаграммы — подставьте реальные данные или используйте заглушки
+        // Если хотите, чтобы данные передавались из Django, нужно изменить view и передать контекст
+        const categories = [
+            "Ламинат",
+            "Паркерт",
+            "Покрытие",
+            "Плинутс",
+            "Плитка",
+            "Подложка",
+            "Товары уникального покрытия"
+            // добавьте другие категории, если нужно
+        ];
+
+        const values = [
+            qwe,  // например, количество характеристик для "Основной товар"
+            1,   // для "LabArte Техномассив Royal Parket"
+            5,
+            6,
+            3,
+            5,
+            1,
+            2,
+        ];
+
+        const ctx = document.getElementById('categoryChart').getContext('2d');
+        const categoryChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: categories,
+                datasets: [{
+                    label: 'Количество характеристик',
+                    data: values,
+                    backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        precision: 0
+                    }
+                }
+            }
+        });
+
+</script>
+    <button name="repost" class="input_button_login"><p class="p_button">Получить отчет</p></button>
   </div>
+      </form>
 </main>
+
 <footer>
   <p class="p_footer">2025</p>
   </footer>
