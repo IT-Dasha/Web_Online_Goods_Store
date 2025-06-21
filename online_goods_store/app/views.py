@@ -83,155 +83,75 @@ import os
 
 def reporting(request):
 # Регистрация шрифта Arial с поддержкой кириллицы
-    if 'repost' in request.POST:
-        font_path = os.path.join('C:/Users/Compolis/OneDrive/Рабочий стол/Интернет магазин для продажа товаров(полы)/ВЕБ РАЗРАБОТКА/Web_Online_Goods_Store/online_goods_store/app/static/fonts', 'arial.ttf')
-        pdfmetrics.registerFont(TTFont('Arial', font_path))
+        if 'repost' in request.POST:
+                            # Путь к файлу шрифта Arial.ttf
+            font_path = os.path.join('C:/Users/Compolis/OneDrive/Рабочий стол/Интернет магазин для продажа товаров(полы)/ВЕБ РАЗРАБОТКА/Web_Online_Goods_Store/online_goods_store/app/static/', 'fonts', 'arial.ttf')  # замените на свой путь
 
-        styles = getSampleStyleSheet()
-        styles.add(ParagraphStyle(name='RussianArial', fontName='Arial', fontSize=10, leading=12))
+            # Регистрируем шрифт Arial
+            pdfmetrics.registerFont(TTFont('Arial', font_path))
 
-        title = Paragraph("Отчет по товарам и категориям", styles['RussianArial'])
+            # Создаем стиль с шрифтом Arial
+            styles = getSampleStyleSheet()
+            styles.add(ParagraphStyle(name='RussianArial', fontName='Arial', fontSize=14))
 
-        # Данные в формате:
-        # Категория -> список товаров
-        # Товар -> список характеристик (каждая характеристика — словарь)
-        data_dict = {
-            'Основной товар': [
-                {
-                    'name': 'Инженерная доска Lab Arte от 400 до 1500х145х14/2,5 Дуб Натур Кайт Лак*',
-                    'details': [
-                        {'status': 'Под заказ', 'unit': 'м²', 'price': '5 377,00', 'available_now': '', 'available_order': '353,007'},
-                    ]
-                },
-                {
-                    'name': 'Инженерная доска Lab Arte от 400 до 1500х145х14/2,5 Дуб Натур Табак Лак*',
-                    'details': [
-                        {'status': 'В наличии', 'unit': 'м²', 'price': '5 377,00', 'available_now': '', 'available_order': '366,510'},
-                    ]
-                },
-                # Добавьте остальные товары...
-            ],
-            'LabArte Техномассив Royal Parket': [
-                {
-                    'name': 'Инженерная доска 14мм',
-                    'details': [
-                        {'status': 'В наличии', 'unit': 'м²', 'price': '2,310', 'available_now': '1 921,845', 'available_order': '-198,660'},
-                    ]
-                },
-                # ...
-            ],
-            # Другие категории...
-        }
-
-        # Формируем данные таблицы
-        # Заголовок таблицы
-        data = [
-            [
-                Paragraph('<b>Категория</b>', styles['RussianArial']),
-                Paragraph('<b>Название товара</b>', styles['RussianArial']),
-                Paragraph('<b>Статус товара</b>', styles['RussianArial']),
-                Paragraph('<b>Ед.изм</b>', styles['RussianArial']),
-                Paragraph('<b>Розничная цена</b>', styles['RussianArial']),
-                Paragraph('<b>Доступно сейчас</b>', styles['RussianArial']),
-                Paragraph('<b>Доступно под заказ</b>', styles['RussianArial']),
+            data = [
+                    ['Товар', 'Количество'],
+                    ['Плинтус', '10 шт'],
+                    ['Подложка', '5 уп.'],
+                    ['Ламинат', '20 м²'],
             ]
-        ]
 
-        # Заполняем строки с объединениями ячеек для категорий
-        for category, products in data_dict.items():
-            # Считаем сколько строк займет категория (сумма всех характеристик всех товаров)
-            category_row_count = sum(len(p['details']) for p in products)
+            buffer = BytesIO()
+            doc = SimpleDocTemplate(buffer, pagesize=letter)
+            elements = []
 
-            first_cat_row = len(data)  # индекс первой строки категории в data
+            title = Paragraph("Отчет по заказам за февраль", styles['RussianArial'])
+            elements.append(title)
+            elements.append(Spacer(1, 12))
 
-            for product in products:
-                details = product['details']
-                first_prod_row = len(data)
-                for i, d in enumerate(details):
-                    row = []
-                    # Категория - только для первой строки товара и первой характеристики категории
-                    if i == 0 and first_prod_row == first_cat_row:
-                        # Категория будет объединена на category_row_count строк
-                        row.append(Paragraph(category, styles['RussianArial']))
-                    elif i == 0:
-                        # Для первой строки товара, но не первой категории - пусто, объединено ниже
-                        row.append('')
-                    else:
-                        # Для остальных строк товара - пусто
-                        row.append('')
+            # Оборачиваем ячейки таблицы в Paragraph с нужным стилем
+            table_data = []
+            for row in data:
+                row_paragraphs = [Paragraph(cell, styles['RussianArial']) for cell in row]
+                table_data.append(row_paragraphs)
 
-                    # Название товара - только для первой характеристики товара
-                    if i == 0:
-                        row.append(Paragraph(product['name'], styles['RussianArial']))
-                    else:
-                        row.append('')
+            table = Table(table_data, colWidths=[400, 100])
 
-                    # Остальные поля
-                    row.append(Paragraph(d.get('status', ''), styles['RussianArial']))
-                    row.append(Paragraph(d.get('unit', ''), styles['RussianArial']))
-                    row.append(Paragraph(d.get('price', ''), styles['RussianArial']))
-                    row.append(Paragraph(d.get('available_now', ''), styles['RussianArial']))
-                    row.append(Paragraph(d.get('available_order', ''), styles['RussianArial']))
+            style = TableStyle([
+            ('BACKGROUND', (0, 0), (-1, 0), colors.lightgrey),
+            ('TEXTCOLOR', (0, 0), (-1, 0), colors.black),
 
-                    data.append(row)
-
-            # Добавим объединения ячеек для категории
-            data_len = len(data)
-            data_rows_for_category = data_len - first_cat_row
-            # Объединяем ячейку категории по вертикали
-            if data_rows_for_category > 1:
-                # (col, row_start) до (col, row_end)
-                # Категория в колонке 0
-                data.append([''])  # чтобы не выйти за границы, потом удалим
-                # Добавим стиль объединения ниже
-
-        # Создаем таблицу
-        col_widths = [90, 100, 80, 40, 80, 80, 80]
-
-        table = Table(data, colWidths=col_widths)
-
-        # Создаем стиль таблицы
-        style = TableStyle([
-            ('FONTNAME', (0, 0), (-1, -1), 'Arial'),
-            ('FONTSIZE', (0, 0), (-1, -1), 9),
-            ('ALIGN', (2, 0), (-1, -1), 'CENTER'),
+            ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
             ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
-            ('GRID', (0,0), (-1,-1), 0.5, colors.grey),
-            ('BACKGROUND', (0,0), (-1,0), colors.lightgrey),
-        ])
 
-        # Добавим объединения ячеек для категорий и товаров
-        row_idx = 1  # начинаем со строки после заголовка
-        for category, products in data_dict.items():
-            cat_row_count = sum(len(p['details']) for p in products)
-            # Объединяем категорию по вертикали
-            if cat_row_count > 1:
-                style.add('SPAN', (0, row_idx), (0, row_idx + cat_row_count -1))
-            # Для каждого товара объединяем название товара по вертикали
-            prod_row_idx = row_idx
-            for product in products:
-                details_count = len(product['details'])
-                if details_count > 1:
-                    style.add('SPAN', (1, prod_row_idx), (1, prod_row_idx + details_count - 1))
-                prod_row_idx += details_count
-            row_idx += cat_row_count
+            ('FONTNAME', (0, 0), (-1, -1), 'Arial'),
+            ('FONTSIZE', (0, 0), (-1, -1), 10),  # уменьшили размер шрифта
 
-        table.setStyle(style)
+            ('TOPPADDING', (0, 0), (-1, -1), 12),    # увеличиваем отступ сверху
+            ('BOTTOMPADDING', (0, 0), (-1, -1), 12), # увеличиваем отступ снизу
 
-        # Формируем документ
-        buffer = BytesIO()
-        doc = SimpleDocTemplate(buffer, pagesize=letter, leftMargin=20, rightMargin=20, topMargin=20, bottomMargin=20)
-        elements = [title, Spacer(1, 12), table]
-        doc.build(elements)
+            ('GRID', (0, 0), (-1, -1), 1, colors.black),
 
-        pdf = buffer.getvalue()
-        buffer.close()
+            ]) 
+            table.setStyle(style)
 
-        response = HttpResponse(content_type='application/pdf')
-        response['Content-Disposition'] = 'attachment; filename="report.pdf"'
-        response.write(pdf)
-        return response
-    return render(request, 'reporting.html')
+            elements.append(table)
+
+            doc.build(elements)
+
+            pdf_value = buffer.getvalue()
+            buffer.close()
+
+            # Сохраняем PDF на диск (укажите свой путь)
+            output_path = os.path.join('C:/Users/Compolis/OneDrive/Рабочий стол/Интернет магазин для продажа товаров(полы)/ВЕБ РАЗРАБОТКА/Web_Online_Goods_Store/online_goods_store', 'test_report.pdf')
+            with open(output_path, 'wb') as f:
+                f.write(pdf_value)
+
+            response = HttpResponse(content_type='application/pdf')
+            response['Content-Disposition'] = 'attachment; filename="test_report.pdf"'
+            response.write(pdf_value)
+            return response
+        return render(request, 'reporting.html')
 
 def personal_account(request):
     return render(request, 'personal_account.html')
