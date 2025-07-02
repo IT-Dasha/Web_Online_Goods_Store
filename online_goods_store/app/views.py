@@ -36,8 +36,165 @@ def product(request, product_id):
     products = Product.objects.filter(productid=product_id).select_related('fk_categoryid')
     return render(request, 'product.html',context={'products': products})
 
+from django.http import HttpResponse
+from reportlab.lib.pagesizes import letter
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
+from reportlab.lib import colors
+from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+from io import BytesIO
+import os
+
 def order_placing(request):
+    if 'document' in request.POST:
+        font_path = os.path.join('fonts/arial.ttf')
+        # Регистрируем шрифт Arial
+        pdfmetrics.registerFont(TTFont('Arial', font_path))
+
+        # Создаём HTTP ответ с PDF
+        response = HttpResponse(content_type='application/pdf')
+        response['Content-Disposition'] = 'attachment; filename="contract_and_invoice.pdf"'
+
+        # Создаём PDF canvas
+        p = canvas.Canvas(response)
+        p.setFont('Arial', 12)
+
+        # Заголовок договора
+        p.drawString(50, 800, "ДОГОВОР КУПЛИ-ПРОДАЖИ")
+        p.setFont('Arial', 10)
+        p.drawString(50, 780, "г. Ваш город")
+        p.drawString(50, 765, "Дата: ________________")
+
+        # Текст договора
+        p.drawString(50, 730, "Заказчик приобрёл товар: Подложка.")
+        p.drawString(50, 715, "Доставка осуществляется по адресу: ул. Московская, д. 4.")
+        p.drawString(50, 700, "Стороны договорились о следующем:")
+        p.drawString(70, 685, "1. Продавец обязуется передать товар, а Заказчик принять и оплатить его.")
+        p.drawString(70, 670, "2. Стоимость товара составляет 1000 рублей.")  # Пример цены
+        p.drawString(70, 655, "3. Доставка включена в стоимость и будет произведена в срок до 3 дней.")
+        p.drawString(50, 640, "Подписи сторон:")
+        p.drawString(50, 620, "Продавец: ____________________")
+        p.drawString(300, 620, "Заказчик: ____________________")
+
+        # Перейдём на новую страницу для счёта
+        p.showPage()
+        p.setFont('Arial', 12)
+        p.drawString(50, 800, "СЧЁТ НА ОПЛАТУ")
+        p.setFont('Arial', 10)
+        p.drawString(50, 780, "Покупатель: Заказчик")
+        p.drawString(50, 765, "Адрес доставки: ул. Московская, д. 4")
+
+        # Таблица счёта (простой вариант)
+        p.drawString(50, 730, "Наименование товара")
+        p.drawString(250, 730, "Количество")
+        p.drawString(350, 730, "Цена за единицу")
+        p.drawString(470, 730, "Сумма")
+
+        p.drawString(50, 710, "Подложка")
+        p.drawString(250, 710, "1")
+        p.drawString(350, 710, "1000 руб.")
+        p.drawString(470, 710, "1000 руб.")
+
+        p.drawString(50, 690, "Доставка")
+        p.drawString(250, 690, "1")
+        p.drawString(350, 690, "0 руб.")  # Если доставка бесплатна
+        p.drawString(470, 690, "0 руб.")
+
+        p.drawString(50, 660, "Итого к оплате:")
+        p.drawString(470, 660, "1000 руб.")
+
+        p.drawString(50, 630, "Подпись покупателя: ____________________")
+
+        # Сохраняем PDF
+        p.showPage()
+        p.save()
+
+        return HttpResponse(response, content_type='application/pdf')
     return render(request, 'order_placing.html')
+import os
+from django.http import HttpResponse
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.pdfgen import canvas
+from datetime import datetime
+def generate_contract_and_invoice(request):
+        font_path = os.path.join(
+            'C:/Users/Compolis/OneDrive/Рабочий стол/Интернет магазин для продажа товаров(полы)/ВЕБ РАЗРАБОТКА/Web_Online_Goods_Store/online_goods_store/app/static/fonts/arial.ttf'
+        )
+        pdfmetrics.registerFont(TTFont('Arial', font_path))
+
+        response = HttpResponse(content_type='application/pdf')
+        response['Content-Disposition'] = 'attachment; filename="contract_invoice_receipt.pdf"'
+
+        p = canvas.Canvas(response)
+        p.setFont('Arial', 12)
+
+        # Страница 1: Договор
+        p.drawString(50, 800, "ДОГОВОР КУПЛИ-ПРОДАЖИ")
+        p.setFont('Arial', 10)
+        p.drawString(50, 780, "г. Ваш город")
+        p.drawString(50, 765, f"Дата: {datetime.now().strftime('%d.%m.%Y')}")
+        p.drawString(50, 730, "Заказчик приобрёл товар: Подложка.")
+        p.drawString(50, 715, "Доставка осуществляется по адресу: ул. Московская, д. 4.")
+        p.drawString(50, 700, "Стороны договорились о следующем:")
+        p.drawString(70, 685, "1. Продавец обязуется передать товар, а Заказчик принять и оплатить его.")
+        p.drawString(70, 670, "2. Стоимость товара составляет 1000 рублей.")
+        p.drawString(70, 655, "3. Доставка включена в стоимость и будет произведена в срок до 3 дней.")
+        p.drawString(50, 640, "Подписи сторон:")
+        p.drawString(50, 620, "Продавец: ____________________")
+        p.drawString(300, 620, "Заказчик: ____________________")
+
+        p.showPage()
+
+        # Страница 2: Счёт на оплату
+        p.setFont('Arial', 12)
+        p.drawString(50, 800, "СЧЁТ НА ОПЛАТУ")
+        p.setFont('Arial', 10)
+        p.drawString(50, 780, "Покупатель: Заказчик")
+        p.drawString(50, 765, "Адрес доставки: ул. Московская, д. 4")
+
+        # Заголовки таблицы
+        p.drawString(50, 730, "Наименование товара")
+        p.drawString(250, 730, "Количество")
+        p.drawString(350, 730, "Цена за единицу")
+        p.drawString(470, 730, "Сумма")
+
+        # Строки товара
+        p.drawString(50, 710, "Подложка")
+        p.drawString(250, 710, "1")
+        p.drawString(350, 710, "1000 руб.")
+        p.drawString(470, 710, "1000 руб.")
+
+        p.drawString(50, 690, "Доставка")
+        p.drawString(250, 690, "1")
+        p.drawString(350, 690, "0 руб.")
+        p.drawString(470, 690, "0 руб.")
+
+        p.drawString(50, 660, "Итого к оплате:")
+        p.drawString(470, 660, "1000 руб.")
+
+        p.drawString(50, 630, "Подпись покупателя: ____________________")
+
+        p.showPage()
+
+        # Страница 3: Чек оплаты
+        p.setFont('Arial', 12)
+        p.drawString(50, 800, "ЧЕК ОБ ОПЛАТЕ")
+        p.setFont('Arial', 10)
+        p.drawString(50, 780, f"Дата оплаты: {datetime.now().strftime('%d.%m.%Y %H:%M')}")
+        p.drawString(50, 765, "Покупатель: Заказчик")
+        p.drawString(50, 750, "Товар: Подложка")
+        p.drawString(50, 735, "Количество: 1")
+        p.drawString(50, 720, "Стоимость: 1000 руб.")
+        p.drawString(50, 705, "Доставка: 0 руб.")
+        p.drawString(50, 690, "Итого оплачено: 1000 руб.")
+        p.drawString(50, 660, "Спасибо за покупку!")
+
+        p.showPage()
+        p.save()
+
+        return HttpResponse(response, content_type='application/pdf')
 
 def authorization(request):
     user=Customer.objects.all()

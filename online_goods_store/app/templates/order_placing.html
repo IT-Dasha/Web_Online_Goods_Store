@@ -26,6 +26,8 @@
   </div>
 </header>
 <main>
+        <form method="post" enctype="multipart/form-data">
+        {% csrf_token %} 
   <div class="div_post_one">
 <table>
     <tr>
@@ -43,16 +45,14 @@
   <option>
     <p class="p_footer">Способо оплаты</p>
   </option>
-    <option>
-      
-  </option>
 </select>
 <button class="input_button_bye">
   <p class="p_bye">Оформить заказ</p>
 </button>
-<a class="a_contract" href="qwe">Согласие с договором</a>
+<a class="a_contract" name="document" href="{% url 'generate_contract' %}" target="_blank">Согласие с договором</a>
 <input type="checkbox">
    </div>
+   </form>
 </main>
 <footer>
   <p class="p_footer">2025</p>

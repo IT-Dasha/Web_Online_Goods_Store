@@ -33,4 +33,5 @@ urlpatterns = [
     path('personal_account/<customerid>', app.views.personal_account, name='personal_account'),
     path('add_product/', app.views.add_product, name='add_product'),
     path('change_product/', app.views.change_product, name='change_product'),
+    path('generate_contract/',  app.views.generate_contract_and_invoice, name='generate_contract'),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
