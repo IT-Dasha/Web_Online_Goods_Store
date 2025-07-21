@@ -202,7 +202,7 @@ def authorization(request):
         phone = request.POST.get('phone')
         password = request.POST.get('password')
         if user.filter(phone=phone).exists() and user.filter(password=password).exists():
-            return HttpResponseRedirect (reverse ('personal_account'), {'customerid': user.get(phone=phone).customerid})
+            return HttpResponseRedirect(reverse('personal_account', args=[user.get(phone=phone).customerid]))
         else:
             return HttpResponseRedirect (reverse ('authorization'))
     return render(request, 'authorization.html')
@@ -310,8 +310,9 @@ def reporting(request):
             return response
         return render(request, 'reporting.html')
 
-def personal_account(request):
-    return render(request, 'personal_account.html')
+def personal_account(request, customerid):  # было customerid → стало pk
+    customer = Customer.objects.get(customerid=customerid)
+    return render(request, 'personal_account.html', {'customer': customer})
 
 def change_product(request):
     return render(request, 'personal_account.html')
